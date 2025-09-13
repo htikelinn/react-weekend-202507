@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,13 +23,59 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const home:MenuItem = {
+    name : "Learning Component",
+    url : "/"
+  }
+  const menus: MenuItem[] = [
+    {
+      name : "About Component",
+      url : "/about"
+    },
+    {
+      name : "Component Properties",
+      url : "/pros"
+    },
+    {
+      name : "Component States",
+      url : "/state"
+    } 
+  ]
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Navbar home={home} menus={menus} />
+        <main>{children}</main>
       </body>
     </html>
   );
+}
+
+type MenuItem = {
+  name : string
+  url : string
+}
+
+type NavbarProps = {
+  home : MenuItem
+  menus : MenuItem[]
+}
+
+function Navbar({home, menus} : NavbarProps) {
+
+  return (
+  <nav className="flex justify-between py-4 px-8 bg-black text-white">
+    <Link href={home.url}>{home.name}</Link>
+    <ul className="flex gap-6 navbar">
+      {menus.map((item, index) => (
+        <li key={index}>
+          <Link href={item.url}>{item.name}</Link>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)    
 }
