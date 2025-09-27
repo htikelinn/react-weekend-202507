@@ -43,18 +43,6 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* @media (prefers-color-scheme: white) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-
-body {
-  position: relative;
-  margin: 1rem;
-}
-
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -132,7 +120,7 @@ body {
     @apply bg-background text-foreground;
   }
 
-  .navbar a {
-    @apply hover:bg-accent hover:text-accent-foreground;
+.navbar a {
+    @apply hover:bg-white/50 hover:text-black/50
   }
 }

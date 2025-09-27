@@ -68,7 +68,7 @@ function Navbar({home, menus} : NavbarProps) {
 
   return (
   <nav className="flex justify-between py-4 px-8 bg-black text-white">
-    <Link href={home.url}>{home.name}</Link>
+    <Link  href={home.url}>{home.name}</Link>
     <ul className="flex gap-6 navbar">
       {menus.map((item, index) => (
         <li key={index}>

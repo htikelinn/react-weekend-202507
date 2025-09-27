@@ -1,0 +1,4 @@
+
+.navbar a {
+    @apply hover:bg-white/50 hover:text-black/50
+  }
